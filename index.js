@@ -3,10 +3,10 @@ const fetch = require("node-fetch");
 const cors = require("cors");
 const base64 = require("base-64");
 
-const app = express();
-const port = process.env.PORT || 8888;
 require("dotenv").config();
+const app = express();
 
+const port = process.env.PORT || 8888;
 const apiUrl = process.env.API_URL_ENV;
 const username = process.env.USER_ENV;
 const password = process.env.PASSWORD_ENV;
@@ -43,6 +43,6 @@ app.get("/pages", async (_, res) => {
   res.status(200).send(await fetchData("pages"));
 });
 
-app.listen(8888, () => {
-  console.log("Proxy server is listening on 9999");
+app.listen(port, () => {
+  console.log(`Proxy server is running on ${port}`);
 });

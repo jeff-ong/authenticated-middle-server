@@ -35,6 +35,10 @@ const fetchData = async endpoint => {
   }
 };
 
+/*
+ * Define endpoints that your front-end app uses to fetch data 
+ */
+
 app.get("/general", async (_, res) => {
   res.status(200).send(await fetchData("general"));
 });

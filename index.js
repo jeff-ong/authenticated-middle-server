@@ -51,8 +51,17 @@ app.get("/works", async (_, res) => {
   res.status(200).send(await fetchData("works"));
 });
 
-app.get("/work/:slug", async (req, res) => {
+app.get("/case-studies/:slug", async (req, res) => {
   res.status(200).send(await fetchData(`work/${req.params.slug}`));
+});
+
+app.get("/our-story", async (_, res) => {
+  res.status(200).send(await fetchData("our-story"));
+});
+
+app.get("/private/:hash/:name", async (req, res) => {
+  const { hash, name } = req.params;
+  res.status(200).send(await fetchData(`/private/${hash}/${name}`));
 });
 
 app.listen(port, () => {

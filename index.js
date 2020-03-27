@@ -47,6 +47,14 @@ app.get("/pages", async (_, res) => {
   res.status(200).send(await fetchData("pages"));
 });
 
+app.get("/works", async (_, res) => {
+  res.status(200).send(await fetchData("works"));
+});
+
+app.get("/work/:slug", async (req, res) => {
+  res.status(200).send(await fetchData(`work/${req.params.slug}`));
+});
+
 app.listen(port, () => {
   console.log(`Proxy server is running on ${port}`);
 });

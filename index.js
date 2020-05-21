@@ -39,29 +39,8 @@ const fetchData = async endpoint => {
  * Define endpoints that your front-end app uses to fetch data 
  */
 
-app.get("/general", async (_, res) => {
-  res.status(200).send(await fetchData("general"));
-});
-
-app.get("/pages", async (_, res) => {
-  res.status(200).send(await fetchData("pages"));
-});
-
-app.get("/works", async (_, res) => {
-  res.status(200).send(await fetchData("works"));
-});
-
-app.get("/case-studies/:slug", async (req, res) => {
-  res.status(200).send(await fetchData(`work/${req.params.slug}`));
-});
-
-app.get("/our-story", async (_, res) => {
-  res.status(200).send(await fetchData("our-story"));
-});
-
-app.get("/private/:hash/:name", async (req, res) => {
-  const { hash, name } = req.params;
-  res.status(200).send(await fetchData(`/private/${hash}/${name}`));
+app.get("/", async (_, res) => {
+  res.status(200).send(await fetchData("/"));
 });
 
 app.listen(port, () => {

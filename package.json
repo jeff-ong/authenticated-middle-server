@@ -1,6 +1,6 @@
 {
   "name": "authenticated-mirror-server",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A local server that mirrors your protected production API endpoints. It lets you connect your local app to your remote server with protected request header.",
   "keywords": [
     "proxy",

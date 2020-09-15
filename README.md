@@ -2,6 +2,7 @@
 
 [![GitHub license](https://img.shields.io/github/license/jeff-ong/simple-proxy-server)](https://github.com/jeff-ong/simple-proxy-server/blob/master/LICENSE) [![Known Vulnerabilities](https://snyk.io/test/github/jeff-ong/simple-proxy-server/badge.svg?targetFile=package.json)](https://snyk.io/test/github/jeff-ong/simple-proxy-server?targetFile=package.json)
 
+[![NPM](https://nodei.co/npm/authenticated-mirror-server.png)](https://nodei.co/npm/authenticated-mirror-server/)
 
 A local server that mirrors your protected production API endpoints. It lets you connect your local app to your remote server with protected request header.
 

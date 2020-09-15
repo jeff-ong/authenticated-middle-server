@@ -26,10 +26,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jeff-ong/simple-proxy-server.git"
+    "url": "git+https://github.com/jeff-ong/authenticated-middle-server.git"
   },
   "bugs": {
-    "url": "https://github.com/jeff-ong/simple-proxy-server/issues"
+    "url": "https://github.com/jeff-ong/authenticated-middle-server/issues"
   },
-  "homepage": "https://github.com/jeff-ong/simple-proxy-server#readme"
+  "homepage": "https://github.com/jeff-ong/authenticated-middle-server#readme"
 }

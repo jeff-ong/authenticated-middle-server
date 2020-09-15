@@ -1,14 +1,14 @@
 {
-  "name": "proxy-server",
+  "name": "authenticated-mirror-server",
   "version": "1.0.0",
-  "description": "For local use only",
-  "main": "index.js",
+  "description": "A local server that mirrors your protected production API endpoints. It lets you connect your local app to your remote server with protected request header.",
+  "main": "./src/",
   "scripts": {
-    "start": "node ./index.js",
+    "start": "node ./src/",
     "test": "jest"
   },
   "author": "Jeff Ong",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "base-64": "^0.1.0",
     "cors": "^2.8.5",
@@ -20,5 +20,16 @@
   "devDependencies": {
     "jest": "^26.4.2",
     "supertest": "^4.0.2"
-  }
+  },
+  "directories": {
+    "example": "./src/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeff-ong/simple-proxy-server.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jeff-ong/simple-proxy-server/issues"
+  },
+  "homepage": "https://github.com/jeff-ong/simple-proxy-server#readme"
 }

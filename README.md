@@ -1,9 +1,9 @@
-# simple-proxy-server
+# authenticated-mirror-server"
 
 [![GitHub license](https://img.shields.io/github/license/jeff-ong/simple-proxy-server)](https://github.com/jeff-ong/simple-proxy-server/blob/master/LICENSE) [![Known Vulnerabilities](https://snyk.io/test/github/jeff-ong/simple-proxy-server/badge.svg?targetFile=package.json)](https://snyk.io/test/github/jeff-ong/simple-proxy-server?targetFile=package.json)
 
 
-A simple proxy server to help you fetch data from third-party endpoints. The main goal is to overcome [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) in local development environment when interacting with remote data endpoints.
+A local server that mirrors your protected production API endpoints. It lets you connect your local app to your remote server with protected request header.
 
 ### Get started
 

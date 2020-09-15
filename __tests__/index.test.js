@@ -31,29 +31,3 @@ describe('Print expected message', () => {
     expect(output).toBe(expectedOutput);
   });
 });
-
-describe('Throw an exception with unsupported values', () => {
-  test('Check if it throws an exception with OBJECTS', () => {
-    const input = { test: 3 };
-
-    expect(() => {
-      print(input);
-    }).toThrow('The argument is not a string or a number');
-  });
-
-  test('Check if it throws an exception with ARRAYS', () => {
-    const input = ['test', 5];
-
-    expect(() => {
-      print(input);
-    }).toThrow('The argument is not a string or a number');
-  });
-
-  test('Check if it throws an exception with FUNCTIONS', () => {
-    const input = () => console.log('test');
-
-    expect(() => {
-      print(input);
-    }).toThrow('The argument is not a string or a number');
-  });
-});

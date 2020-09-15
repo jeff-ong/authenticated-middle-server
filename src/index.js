@@ -1,36 +1,48 @@
-/**
- * Print {strings and number} messages in the console
- *
- * @param {String | Number} message
- */
-function print(message) {
-  var _message = message !== undefined ? message : '';
+const express = require('express');
+const fetch = require('node-fetch');
+const cors = require('cors');
+const base64 = require('base-64');
 
-  if (!_isString(message) && !_isNumber(message)) {
-    throw new Error('The argument is not a string or a number');
+require('dotenv').config();
+const app = express();
+
+const port = process.env.PORT || 8888;
+const apiUrl = process.env.API_URL_ENV;
+const username = process.env.USER_ENV;
+const password = process.env.PASSWORD_ENV;
+
+const headers = {
+  Authorization: 'Basic ' + base64.encode(username + ':' + password),
+};
+
+app.use(cors());
+
+const fetchData = async (endpoint) => {
+  try {
+    return await fetch(`${apiUrl}${endpoint}`, { headers })
+      .then((res) => {
+        if (res.status >= 400) {
+          console.error(res.statusText);
+          throw new Error('Unauthorized');
+        }
+        return res.json();
+      })
+      .then((res) => res)
+      .catch((err) => console.error(err));
+  } catch (err) {
+    console.error(err);
+    throw new Error('Failed to fetch data from external source');
   }
+};
 
-  console.log(_message);
-}
-
-/**
- * Verify if the passed value is a String
- *
- * @param {*} value
- * @returns {Boolean}
+/*
+ * Define endpoints that your front-end app uses to fetch data
  */
-function _isString(value) {
-  return toString.call(value) == '[object String]';
-}
 
-/**
- * Verify if the passed value is a Number
- *
- * @param {*} value
- * @returns {Boolean}
- */
-function _isNumber(value) {
-  return typeof value === 'number';
-}
+app.get('/', async (_, res) => {
+  res.status(200).send(await fetchData('/'));
+});
 
-module.exports = print;
+app.listen(port, () => {
+  console.log(`Proxy server is running on ${port}`);
+});

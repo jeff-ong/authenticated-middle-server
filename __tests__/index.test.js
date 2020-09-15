@@ -1,33 +1,14 @@
 'use strict';
 
-const print = require('../src');
+const server = require('../src/server');
+const routes = require('../src/routes');
+const supertest = require('supertest');
+const request = supertest(server);
 
-describe('Print expected message', () => {
-  test('Check if it prints a number', () => {
-    const expectedOutput = '4';
-
-    let output = '';
-    function storeLog(inputs) {
-      output += inputs;
-    }
-    console['log'] = jest.fn(storeLog.bind(this));
-
-    print(4);
-
-    expect(output).toBe(expectedOutput);
-  });
-
-  test('Check if it prints a string', () => {
-    const expectedOutput = `This is a test ${Date.now()}`;
-
-    let output = '';
-    function storeLog(inputs) {
-      output += inputs;
-    }
-    console['log'] = jest.fn(storeLog.bind(this));
-
-    print(expectedOutput);
-
-    expect(output).toBe(expectedOutput);
+describe('Test endpoint', () => {
+  test('Should get test data from test endpoint', async () => {
+    const response = await request.get(routes.TEST);
+    expect(response.status).toBe(200);
+    expect(response.body.message).toBe('it is working fine');
   });
 });

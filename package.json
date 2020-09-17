@@ -11,6 +11,9 @@
     "basic authentication"
   ],
   "main": "./src/",
+  "bin": {
+    "ams-start": "./src/cli/bin/ams.js"
+  },
   "scripts": {
     "start": "node ./src/",
     "test": "jest"
@@ -19,9 +22,13 @@
   "license": "MIT",
   "dependencies": {
     "base-64": "^0.1.0",
+    "chalk": "^4.1.0",
+    "clear": "^0.1.0",
     "cors": "^2.8.5",
+    "cosmiconfig": "^7.0.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "figlet": "^1.5.0",
     "node-fetch": "^2.6.1",
     "nodemon": "^2.0.4"
   },

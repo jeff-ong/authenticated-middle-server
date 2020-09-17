@@ -1,17 +1,12 @@
 const fetch = require('node-fetch');
 const base64 = require('base-64');
 
-const apiUrl = process.env.API_URL_ENV;
-const username = process.env.USER_ENV;
-const password = process.env.PASSWORD_ENV;
-
-const headers = {
-  Authorization: 'Basic ' + base64.encode(username + ':' + password),
-};
-
-const fetchData = async (endpoint) => {
+const fetchData = async (url, endpoint, username, password) => {
+  const headers = {
+    Authorization: 'Basic ' + base64.encode(username + ':' + password),
+  };
   try {
-    return await fetch(`${apiUrl}${endpoint}`, { headers })
+    return await fetch(`${url}${endpoint}`, { headers })
       .then((res) => {
         if (res.status >= 400) {
           console.error(res.statusText);
@@ -27,8 +22,8 @@ const fetchData = async (endpoint) => {
   }
 };
 
-const testFetchData = () => {
-  return { message: 'it is working fine' };
+const testFetchData = data => {
+  return { message: 'it is an endpoint for ' + data};
 };
 
 module.exports = { fetchData, testFetchData };
